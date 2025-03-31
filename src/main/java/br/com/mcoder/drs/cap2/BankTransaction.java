@@ -24,7 +24,7 @@ public class BankTransaction {
 	}
 	@Override
 	public String toString() {
-		return "\nBankTransaction [date=" + date + ", amount=" + amount + ", description=" + description + "]";
+		return "\nBankTransaction [date = " + date + ", amount = " + amount + ", description = " + description + "]";
 	}
 	@Override
 	public int hashCode() {

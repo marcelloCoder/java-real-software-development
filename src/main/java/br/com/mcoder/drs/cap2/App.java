@@ -1,4 +1,4 @@
-package br.com.mcoder.drs;
+package br.com.mcoder.drs.cap2;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,9 +9,6 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
-import br.com.mcoder.drs.cap2.BankStatementCSVParser;
-import br.com.mcoder.drs.cap2.BankTransaction;
 
 public class App {
 	private static final String RESOURCES = "src/main/resources/";

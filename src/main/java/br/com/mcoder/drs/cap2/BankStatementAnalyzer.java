@@ -1,4 +1,4 @@
-package br.com.mcoder.drs;
+package br.com.mcoder.drs.cap2;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -6,10 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Month;
 import java.util.List;
-
-import br.com.mcoder.drs.cap2.BankStatementCSVParser;
-import br.com.mcoder.drs.cap2.BankStatementProcessor;
-import br.com.mcoder.drs.cap2.BankTransaction;
 
 public class BankStatementAnalyzer {
 	
@@ -42,6 +38,17 @@ public class BankStatementAnalyzer {
 		
 		System.out.println("The total salary received is " + bankStatementProcessor.calculateTotalForCategory("Burger King"));
 		
+	}
+	
+	public void analyze(final String fileName, final BankStatementParser bankStatementParser) throws IOException {
+		final Path path = Paths.get(RESOURCES + fileName);
+		final List<String> lines = Files.readAllLines(path);
+		
+		final List<BankTransaction> bankTransactions = bankStatementParser.parseLinesFrom(lines);
+		
+		final BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
+		
+		collectSummary(bankStatementProcessor);
 	}
 
 }

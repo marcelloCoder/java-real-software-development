@@ -7,7 +7,7 @@ public class BankStatementProcessor {
 	
 	private final List<BankTransaction> bankTransactions;
 
-	public BankStatementProcessor(List<BankTransaction> bankTransactions) {
+	public BankStatementProcessor(final List<BankTransaction> bankTransactions) {
 		this.bankTransactions = bankTransactions;
 	}
 	

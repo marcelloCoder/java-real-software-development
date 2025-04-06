@@ -30,7 +30,7 @@ public class BankStatementCSVParser implements BankStatementParser{
 
 	@Override
 	public BankTransaction parseFrom(String line) {
-		return parseFrom(line);
+		return parseFromCSV(line);
 	}
 
 	@Override

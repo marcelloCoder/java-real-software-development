@@ -21,7 +21,7 @@ Este princípio estabelece que uma **classe deve ter apenas uma responsabilidade
 
 Isso torna o código mais organizado, modular e fácil de manter.
 
-### 🔹 Princípio KISS (Keep It Simple, Stupid)
+### 🔹 Princípio KISS (Keep It Short and Simple)
 
 Evitei complexidade desnecessária nas implementações. O objetivo é manter o código **simples e direto**, facilitando o entendimento e manutenção futura. Soluções simples tendem a ser mais confiáveis e fáceis de testar.
 

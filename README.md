@@ -88,15 +88,6 @@ O projeto segue em andamento, e novos capítulos serão incorporados nas próxim
 - Integração com banco de dados
 - Interface de visualização (CLI ou Web)
 
----
-
-## 💬 Contato
-
-Caso tenha sugestões, dúvidas ou queira trocar uma ideia sobre o projeto, fique à vontade para entrar em contato! 😄  
-🔗 [linkedin.com/in/seu-perfil](https://linkedin.com/in/seu-perfil)  
-📧 seu.email@exemplo.com
-
----
 
 ## 🧠 Aprendizados até aqui
 

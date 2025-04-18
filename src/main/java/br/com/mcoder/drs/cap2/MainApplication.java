@@ -11,6 +11,10 @@ public class MainApplication {
 		final BankStatementParser bankStatementParser = new BankStatementCSVParser();
 		
 		bankStatementAnalyzer.analyze(args[0], bankStatementParser);
+		
+		boolean test = false;
+		
+		System.out.println(" " + !test);
 
 	}
 

@@ -43,7 +43,7 @@ public class BankStatementProcessor {
 		double max = 0;
 		for (final BankTransaction bankTransaction : bankTransactions) {
 			if (bankTransaction.getDate().getMonth() == month) {
-				if(bankTransaction.getAmount() > max) {
+				if (bankTransaction.getAmount() > max) {
 					max = bankTransaction.getAmount();
 				}
 			}
@@ -53,15 +53,21 @@ public class BankStatementProcessor {
 
 	public double calculateMinTransactionPerMonth(final Month month) {
 		double min = 0;
+		boolean found = false;
+
 		for (final BankTransaction bankTransaction : bankTransactions) {
 			if (bankTransaction.getDate().getMonth() == month) {
-				if(bankTransaction.getAmount() < min) {
+				if (!found) {
+					min = bankTransaction.getAmount();
+					found = true;
+				} else if (bankTransaction.getAmount() < min) {
 					min = bankTransaction.getAmount();
 				}
 			}
 		}
+
 		return min;
-			
+
 	}
 
 }

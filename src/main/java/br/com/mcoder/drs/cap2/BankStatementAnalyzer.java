@@ -51,6 +51,11 @@ public class BankStatementAnalyzer {
 		
 		System.out.println("The MIN of FEBRUARY is : " + bankStatementProcessor.calculateMinTransactionPerMonth(Month.FEBRUARY));
 
+		bankStatementProcessor.calculateTotalPerMonth();
+		
+		bankStatementProcessor.calculateMinTransactionForAllMonths();
+		
+		bankStatementProcessor.calculateMaxTransactionForAllMonths();
 	}
 	
 	public void analyze(final String fileName, final BankStatementParser bankStatementParser) throws IOException {

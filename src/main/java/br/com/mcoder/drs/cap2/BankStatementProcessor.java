@@ -65,8 +65,75 @@ public class BankStatementProcessor {
 				}
 			}
 		}
-
 		return min;
+	}
+
+	public void calculateTotalPerMonth() {
+		for (Month month : Month.values()) {
+			double total = 0.0;
+
+			for (BankTransaction bankTransaction : bankTransactions) {
+				if (bankTransaction.getDate().getMonth() == month) {
+					total += bankTransaction.getAmount();
+				}
+			}
+			if (total >= 0) {
+				System.out.println("Total in month : " + month + " is POSITIVE $ " + total);
+			}
+			if (total < 0) {
+				System.out.println("Total in month : " + month + " is NEGATIVE $ " + total);
+			}
+		}
+	}
+
+	/*public Map<Month, Double> calculateTotalPerMonth() {  OUTRA ALTERNATIVA
+	    Map<Month, Double> totalsPerMonth = new HashMap<>();
+
+	    for (final BankTransaction bankTransaction : bankTransactions) {
+	        Month month = bankTransaction.getDate().getMonth();
+	        double amount = bankTransaction.getAmount();
+
+	        totalsPerMonth.put(month, totalsPerMonth.getOrDefault(month, 0.0) + amount);
+	    }
+
+	    return totalsPerMonth;
+	}*/
+
+	
+	public void calculateMinTransactionForAllMonths() {
+		double min = 0;
+		boolean found = false;
+
+		for (Month month : Month.values()) {
+			for (final BankTransaction bankTransaction : bankTransactions) {
+				if (bankTransaction.getDate().getMonth() == month) {
+					if (!found) {
+						min = bankTransaction.getAmount();
+						found = true;
+					} else if (bankTransaction.getAmount() < min) {
+						min = bankTransaction.getAmount();
+					}
+				}
+			}
+			System.out.println("The MIN transaction of Month : " + month + " is $ :" + min);
+			min = 0;
+		}
+
+	}
+
+	public void calculateMaxTransactionForAllMonths() {
+		double max = 0;
+		for (Month month : Month.values()) {
+			for (final BankTransaction bankTransaction : bankTransactions) {
+				if (bankTransaction.getDate().getMonth() == month) {
+					if (bankTransaction.getAmount() > max) {
+						max = bankTransaction.getAmount();
+					}
+				}
+			}
+			System.out.println("The MAX transaction of Month : " + month + " is $ :" + max);
+			max = 0;
+		}
 
 	}
 

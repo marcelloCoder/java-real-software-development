@@ -15,10 +15,15 @@ public class BankStatementAnalyzer {
 
 	public static void main(String[] args) throws IOException {
 		
+		if (args.length == 0) {
+			throw new RuntimeException("File not found!");
+		}
+		
 		final String fileName = args[0];
 		final Path path = Paths.get(RESOURCES + fileName);
 		final List<String> lines = Files.readAllLines(path);
 		
+	
 		final List<BankTransaction> bankTransactions = bankStatementParser.parseLinesFromCSV(lines);
 		
 		final BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
@@ -37,6 +42,12 @@ public class BankStatementAnalyzer {
 		System.out.println("The total for transactions in February is " + bankStatementProcessor.calculateTotalInMonth(Month.FEBRUARY));
 		
 		System.out.println("The total salary received is " + bankStatementProcessor.calculateTotalForCategory("Burger King"));
+		
+		System.out.println("The MAX of January is : " + bankStatementProcessor.calculateMaxTransactionPerMonth(Month.JANUARY));
+		
+		System.out.println("The MAX of February is : " + bankStatementProcessor.calculateMaxTransactionPerMonth(Month.FEBRUARY));
+		
+		System.out.println("The MIN of January is : " + bankStatementProcessor.calculateMinTransactionPerMonth(Month.JANUARY));
 		
 	}
 	
